@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Driver;
+import com.example.demo.mapper.CarMapper;
 import com.example.demo.mapper.DriverMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Service
+@Service(value = "driverService1")
 public class DriverService {
 
     @Autowired
@@ -19,7 +20,14 @@ public class DriverService {
         return driverMapper.findDriver(name,car_license);
     }
 
-    public Boolean isIncluded(String name,String car_license){
-        return false;
+    public void addDriver(String name,String car_license){
+        driverMapper.addDriver(name,car_license);
     }
+
+    public Boolean isIncluded(String name,String car_license){
+        if(findDriver(name,car_license)!=null)
+            return true;
+        else return false;
+    }
+
 }

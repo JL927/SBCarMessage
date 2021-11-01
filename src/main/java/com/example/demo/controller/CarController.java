@@ -16,6 +16,7 @@ public class CarController {//与前端交互
 
     @RequestMapping("/findAll")
     public List<Car> findAll(){
+        System.out.println(System.currentTimeMillis());
         return carService.findAll();
     }
 

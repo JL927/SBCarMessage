@@ -9,6 +9,10 @@
         SELECT * FROM car where engine_id=#{engine_id}
     </select>
 
+    <select id="findCarByName" resultType="com.example.demo.entity.Car">
+        SELECT * FROM car where driver_name=#{driver_name}
+    </select>
+
     <select id="findAllByCity" resultType="com.example.demo.entity.Car">
         SELECT * FROM car where cityid=#{cityid}
     </select>

@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DriverMapper {
      Driver findDriver(String name,String car_license);
+
+     void addDriver(String name,String car_license);
 }

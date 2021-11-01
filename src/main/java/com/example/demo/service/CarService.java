@@ -26,4 +26,7 @@ public class CarService {//处理业务逻辑
     public Car findCar(int engineId) {
         return carMapper.findCar(engineId);
     }
+    public Car findCarByName(String name) {
+        return carMapper.findCarByName(name);
+    }
 }

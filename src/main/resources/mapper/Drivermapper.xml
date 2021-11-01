@@ -4,4 +4,8 @@
    <select id="findDriver" resultType="com.example.demo.entity.Driver">
        select * from driver where name=#{name} and car_license=#{car_license}
    </select>
+
+    <insert id="addDriver">
+        insert into driver (name, car_license) VALUES (#{name},#{car_license})
+    </insert>
 </mapper>
