@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.mapper.CarMapper">
+    <select id="findAll" resultType="com.example.demo.entity.Car">
+    SELECT * FROM car
+    </select>
+
+    <select id="findCar" resultType="com.example.demo.entity.Car">
+        SELECT * FROM car where engine_id=#{engine_id}
+    </select>
+
+    <select id="findAllByCity" resultType="com.example.demo.entity.Car">
+        SELECT * FROM car where cityid=#{cityid}
+    </select>
+
+    <update id="changeViolation">
+        update car set violation =#{violation} where engine_id=#{engine_id}
+    </update>
+
+</mapper>
