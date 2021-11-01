@@ -14,9 +14,8 @@ public class CarController {//与前端交互
     @Autowired
     private CarService carService;
 
-    @RequestMapping("/findAll")
+    @PostMapping("/findAll")
     public List<Car> findAll(){
-        System.out.println(System.currentTimeMillis());
         return carService.findAll();
     }
 
