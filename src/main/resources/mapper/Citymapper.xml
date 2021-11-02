@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.mapper.DriverMapper">
-    <select id="getId" resultType="int">
-        select city_id from city where city_name=#{city_name}
+<mapper namespace="com.example.demo.mapper.CityMapper">
+    <select id="getId" resultType="com.example.demo.entity.City">
+        select * from city where city_name=#{city_name}
     </select>
 </mapper>

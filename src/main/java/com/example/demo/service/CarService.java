@@ -13,13 +13,14 @@ public class CarService {//处理业务逻辑
     @Autowired
     private CarMapper carMapper;
     @Autowired
-    private CityMapper cityMapper;
+    private CityService cityService;
+
 
     public List<Car> findAll(){
         return carMapper.findAll();
     }
     public List<Car> findAllByCity(String name){
-        return carMapper.findAllByCity(this.getCityId(name));
+        return carMapper.findAllByCity(cityService.getCityId(name));
     }
 
     public void changeViolation(int id,String vio){
@@ -32,12 +33,8 @@ public class CarService {//处理业务逻辑
     public Car findCarByName(String name) {
         return carMapper.findCarByName(name);
     }
-
     public void deleteCar(int engine_id){
         carMapper.deleteCar(engine_id);
-    }
-    public int getCityId(String name){
-        return cityMapper.getId(name);
     }
 
     public void addCar(int engine_id,
@@ -47,6 +44,6 @@ public class CarService {//处理业务逻辑
                        String violation,
                        String model)
     {
-        carMapper.addCar(engine_id, license, driver_name, this.getCityId(city_name), violation, model);
+        carMapper.addCar(engine_id, license, driver_name, cityService.getCityId(city_name), violation, model);
     }
 }
