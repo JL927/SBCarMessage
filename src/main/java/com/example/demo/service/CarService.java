@@ -7,9 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.Collator;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
+import java.util.*;
 
 @Service
 public class CarService {//处理业务逻辑
@@ -22,12 +20,12 @@ public class CarService {//处理业务逻辑
 
     public List<Car> findAll(){
         List<Car> list=carMapper.findAll();
-        this.SortList(list);
+        //this.SortList(list);
         return list;
     }
     public List<Car> findAllByCity(String name){
         List<Car> list=carMapper.findAllByCity(cityService.getCityId(name));
-        this.SortList(list);
+        //this.SortList(list);
         return list;
     }
 
@@ -64,23 +62,41 @@ public class CarService {//处理业务逻辑
     }
 
     public Car binarySearchCar(List<Car> list,String str){
+        Iterator<Car> it=list.iterator();
+        String[] strs=new String[list.size()];
+        int i=0;
+        while(it.hasNext()){
+            strs[i++]=it.next().getLicense();
+        }
         int left = 0;
-        int right = list.size() - 1;
+        int right = strs.length - 1;
         int mid ;
         while (left <= right){
             mid = (left + right)/2;
-            if(str.equals(list.get(mid).getLicense()))
+            if(str.equals(strs[mid]))
                 return list.get(mid);
-            if(str.compareTo(list.get(mid).getLicense()) < 0)
+            if(str.compareTo(strs[mid]) < 0)
                 right = mid - 1;
-            if(str.compareTo(list.get(mid).getLicense()) > 0)
+            if(str.compareTo(strs[mid]) > 0)
                 left = mid + 1;
         }
         return null;
     }
     public void SortList(List<Car> list){
-        Collator co = Collator.getInstance(Locale.CHINA);
-        list.sort(co);
+//        Collator co = Collator.getInstance(Locale.CHINA);
+//        String[] strs = (String[]) list.toArray();
+//        Arrays.sort(strs, co);
+        list.sort(new Comparator<Car>() {
+            @Override
+            public int compare(Car o1, Car o2) {
+                String s1=o1.getLicense();
+                String s2=o2.getLicense();
+                if(s1.substring(0,1).compareTo(s2.substring(0,1))==0){
+                    return s1.substring(1).compareTo(s2.substring(1));
+                }else
+                    return s1.substring(0,1).compareTo(s2.substring(0,1));
+            }
+        });
 //        for (Car car: list) {
 //            System.out.println(car.getLicense());
 //        }
