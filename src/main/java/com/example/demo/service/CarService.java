@@ -46,8 +46,8 @@ public class CarService {//处理业务逻辑
         this.SortList(list);
         return this.binarySearchCar(list,carMapper.findCar(engineId).getLicense());
     }
-    public Car findCarByName(String name) {
-        return carMapper.findCarByName(name);
+    public Car findCarByName(String license) {
+        return carMapper.findCarByName(license);
     }
     public void deleteCar(int engine_id){
         carMapper.deleteCar(engine_id);

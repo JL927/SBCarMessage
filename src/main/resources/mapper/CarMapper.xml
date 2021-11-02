@@ -10,7 +10,7 @@
     </select>
 
     <select id="findCarByName" resultType="com.example.demo.entity.Car">
-        SELECT * FROM car where driver_name=#{driver_name}
+        SELECT * FROM car where license=#{license}
     </select>
 
     <select id="findAllByCity" resultType="com.example.demo.entity.Car">
