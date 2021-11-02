@@ -21,9 +21,9 @@ public class CarController {//与前端交互
        return carService.findAll();
     }
 
-    @RequestMapping("/findAllByCity/{cityid}")
-    public List<Car> findAllByCity(@PathVariable int cityid){
-        return carService.findAllByCity(cityid);
+    @RequestMapping("/findAllByCity/{name}")
+    public List<Car> findAllByCity(@PathVariable String name){
+        return carService.findAllByCity(name);
     }
 
     @RequestMapping("/findCar/{engineId}")
@@ -36,6 +36,21 @@ public class CarController {//与前端交互
         return carService.findCarByName(car_license);
     }
 
+    @RequestMapping("/deleteCar/{engine_id}")
+    public void deleteCar(@PathVariable int engine_id){
+        carService.deleteCar(engine_id);
+    }
+
+    @RequestMapping("/addCar/{engine_id}/{license}/{driver_name}/{city_name}/{violation}/{model}")
+    public void addCar(@PathVariable int engine_id,
+                       @PathVariable String license,
+                       @PathVariable String driver_name,
+                       @PathVariable String city_name,
+                       @PathVariable String violation,
+                       @PathVariable String model)
+    {
+        carService.addCar(engine_id, license, driver_name, city_name, violation, model);
+    }
 
     @RequestMapping("/changeViolation/{engineId}/{violation}")
     public void changeViolation(@PathVariable int engineId,@PathVariable String violation){

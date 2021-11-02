@@ -3,6 +3,7 @@ package com.example.demo.mapper;
 import com.example.demo.entity.Car;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -19,4 +20,12 @@ public interface CarMapper {//与数据库匹配
 
     void changeViolation(int engine_id,String violation);
 
+    void deleteCar(int engine_id);
+
+    void addCar(int engine_id,
+                String license,
+                String driver_name,
+                int cityid,
+                String violation,
+                String model);
 }
