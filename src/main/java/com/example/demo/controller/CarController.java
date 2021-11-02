@@ -54,4 +54,9 @@ public class CarController {//与前端交互
     public void changeViolation(@PathVariable int engineId,@PathVariable String violation){
         carService.changeViolation(engineId,violation);
     }
+
+    @RequestMapping("/changeModel/{name}/{model}")
+    public void changeModel(@PathVariable String name,@PathVariable String model){
+        carService.changeModel(name, model);
+    }
 }

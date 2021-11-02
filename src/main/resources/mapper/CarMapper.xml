@@ -28,4 +28,8 @@
                                                                                             #{driver_name}, #{model})
     </insert>
 
+    <update id="changeModel">
+        update car set model=#{model} where driver_name=#{driver_name}
+    </update>
+
 </mapper>

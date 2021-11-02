@@ -35,6 +35,9 @@ public class CarService {//处理业务逻辑
         carMapper.changeViolation(id,vio);
     }
 
+    public void changeModel(String driver_name,String model){
+        carMapper.changeModel(driver_name,model);
+    }
     public Car findCar(int engineId) {
         return carMapper.findCar(engineId);
     }
