@@ -2,8 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Car;
 import com.example.demo.service.CarService;
-import net.sf.json.JSON;
-import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

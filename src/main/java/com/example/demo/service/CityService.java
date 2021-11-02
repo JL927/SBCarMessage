@@ -10,7 +10,6 @@ public class CityService {
     @Autowired
     private CityMapper cityMapper;
     public int getCityId(String name){
-        System.out.println(cityMapper.getId(name));
         return cityMapper.getId(name).getCity_id();
     }
 }
