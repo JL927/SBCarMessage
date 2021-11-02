@@ -4,7 +4,6 @@ package com.example.demo.entity;
 public class Car {
     private int engine_id;
     private String license;
-    private String violation;
     private int cityid;
     private String driver_name;
     private String model;
@@ -12,10 +11,9 @@ public class Car {
     public Car() {
     }
 
-    public Car(int engine_id, String license, String violation, int cityid, String driver_name, String model) {
+    public Car(int engine_id, String license, int cityid, String driver_name, String model) {
         this.engine_id = engine_id;
         this.license = license;
-        this.violation = violation;
         this.cityid = cityid;
         this.driver_name = driver_name;
         this.model = model;
@@ -35,14 +33,6 @@ public class Car {
 
     public void setLicense(String license) {
         this.license = license;
-    }
-
-    public String getViolation() {
-        return violation;
-    }
-
-    public void setViolation(String violation) {
-        this.violation = violation;
     }
 
     public int getCityid() {

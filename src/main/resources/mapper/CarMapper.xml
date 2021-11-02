@@ -17,14 +17,12 @@
         SELECT * FROM car where cityid=#{cityid}
     </select>
 
-    <update id="changeViolation">
-        update car set violation =#{violation} where engine_id=#{engine_id}
-    </update>
+
     <delete id="deleteCar">
         delete from car where engine_id=#{engine_id}
     </delete>
     <insert id="addCar">
-        insert into car (engine_id, license, violation, cityid, driver_name, model) VALUES (#{engine_id}, #{license}, #{violation},#{cityid},
+        insert into car (engine_id, license,  cityid, driver_name, model) VALUES (#{engine_id}, #{license}, #{cityid},
                                                                                             #{driver_name}, #{model})
     </insert>
 
