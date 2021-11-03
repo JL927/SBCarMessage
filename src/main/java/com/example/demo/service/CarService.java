@@ -55,9 +55,10 @@ public class CarService {//处理业务逻辑
                        String license,
                        String driver_name,
                        String city_name,
-                       String model)
+                       String model,
+                       String color)
     {
-        carMapper.addCar(engine_id, license, driver_name, cityService.getCityId(city_name),model);
+        carMapper.addCar(engine_id, license, driver_name, cityService.getCityId(city_name),model,color);
     }
 
     public Car binarySearchCar(List<Car> list,String str){

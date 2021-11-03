@@ -44,14 +44,15 @@ public class CarController {//与前端交互
         carService.deleteCar(engine_id);
     }
 
-    @RequestMapping("/addCar/{engine_id}/{license}/{driver_name}/{city_name}/{model}")
+    @RequestMapping("/addCar/{engine_id}/{license}/{driver_name}/{city_name}/{model}/{color}")
     public void addCar(@PathVariable int engine_id,
                        @PathVariable String license,
                        @PathVariable String driver_name,
                        @PathVariable String city_name,
-                       @PathVariable String model)
+                       @PathVariable String model,
+                       @PathVariable String color)
     {
-        carService.addCar(engine_id, license, driver_name, city_name, model);
+        carService.addCar(engine_id, license, driver_name, city_name, model,color);
     }
 
     @RequestMapping("/changeViolation/{engineId}/{violation}")
