@@ -3,16 +3,16 @@ package com.example.demo.entity;
 import java.sql.Timestamp;
 
 public class Violation {
-    private String carlicense;
+    private String license;
     private String violation;
     private int fine;
     private Timestamp time;
     private int score;
 
-    public String getCarlicense(){ return carlicense; }
+    public String getLicense(){ return license; }
 
-    public Violation(String carlicense) {
-        this.carlicense = carlicense;
+    public void setLicense(String license) {
+        this.license = license;
     }
 
     public String getViolation() { return violation; }
@@ -43,11 +43,14 @@ public class Violation {
 
     public void setScore(int score) { this.score = score; }
 
-    public Violation(String carlicense,String violation,int fine,Timestamp time,int score){
-        this.carlicense  = carlicense;
+    public Violation(String license,String violation,int fine,Timestamp time,int score){
+        this.license  = license;
         this.violation = violation;
         this.fine = fine;
         this.time = time;
         this.score = score;
+    }
+
+    public Violation() {
     }
 }

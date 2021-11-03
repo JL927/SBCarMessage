@@ -6,25 +6,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Service
 public class ViolationService {
     @Autowired
     private ViolationMapper violationMapper;
-    public Violation findViolation(String carlicense){return violationMapper.findViolation(carlicense);}
-    public void deleteViolation(String carlicense){violationMapper.deleteViolation(carlicense);}
-    public void addViolation(String carlicense,
+    public List<Violation> findAllViolation(String license){return violationMapper.findAllViolation(license);}
+    public Violation findViolation(long num){return violationMapper.findViolation(num);}
+
+    public void deleteViolation(long num){violationMapper.deleteViolation(num);}
+    public void addViolation(String license,
                              String violation,
                              int fine,
-                             Timestamp time,
                              int score)
-    {violationMapper.addViolation(carlicense,violation,fine,time,score);}
-    public int findscore(String carlicense){
-        int totalscores = 0;
-        while (carlicense.equals(violationMapper.findViolation(carlicense).getCarlicense()))
-        {
-            totalscores +=violationMapper.findViolation(carlicense).getScore();
+    {
+        violationMapper.addViolation(license,violation,fine,score,System.currentTimeMillis());
+    }
+    public int findScore(String license){
+        int totalScores = 0;
+        List<Violation> list=violationMapper.findAllViolation(license);
+        for (Violation violation : list) {
+            totalScores+=violation.getScore();
         }
-        return totalscores;
+        return totalScores;
     }
 }

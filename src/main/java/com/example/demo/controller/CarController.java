@@ -64,23 +64,27 @@ public class CarController {//与前端交互
         carService.changeModel(name, model);
     }
 
-    @RequestMapping("/findViolation/{carlicense}")
-    public Violation findViolation(@PathVariable String carlicense){
-        return violationService.findViolation(carlicense);
-    }
 
-    @RequestMapping("/deleteViolation/{carlicense}")
-    public void deleteViolation(@PathVariable String carlicense){
-        violationService.deleteViolation(carlicense);
-    }
-
-    @RequestMapping("/addViolation/{carlicense}/{violation}/{fine}/{time}{score}")
-    public void addViolation(@PathVariable String carlicense,
-                             @PathVariable String text,
+    @RequestMapping("/addViolation/{license}/{violation}/{fine}/{score}")
+    public void addViolation(@PathVariable String license,
+                             @PathVariable String violation,
                              @PathVariable int fine,
-                             @PathVariable Timestamp time,
                              @PathVariable int score)
     {
-        violationService.addViolation(carlicense,text,fine,time,score);
+        violationService.addViolation(license,violation,fine,score);
     }
+    @RequestMapping("/findAllViolation/{license}")
+    public List<Violation> findAllViolation(@PathVariable String license){
+        return violationService.findAllViolation(license);
+    }
+    @RequestMapping("/findViolation/{num}")
+    public Violation findViolation(@PathVariable int num){
+        return violationService.findViolation(num);
+    }
+
+    @RequestMapping("/deleteViolation/{num}")
+    public void deleteViolation(@PathVariable long num){
+        violationService.deleteViolation(num);
+    }
+
 }

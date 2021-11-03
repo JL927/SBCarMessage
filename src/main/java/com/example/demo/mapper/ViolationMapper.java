@@ -5,16 +5,17 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Mapper
 @Repository
 public interface ViolationMapper {
-    Violation findViolation(String carlicense);
-    void deleteViolation(String carlicense);
-    void addViolation(String carlicense,
+    List<Violation> findAllViolation(String license);
+    Violation findViolation(long num);
+    void deleteViolation(long num);
+    void addViolation(String license,
                       String violation,
                       int fine,
-                      Timestamp time,
-                      int score);
-    int findscore(String carlicense);
+                      int score,
+                      long num);
 }

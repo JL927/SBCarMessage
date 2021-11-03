@@ -21,8 +21,8 @@ public class DriverService {
         return driverMapper.findDriver(name,car_license);
     }
 
-    public void addDriver(String name,String car_license){
-        driverMapper.addDriver(name,car_license);
+    public void addDriver(int driver_id,String name,String lis,String phone){
+        driverMapper.addDriver(driver_id,name,lis,phone);
     }
 
     public Boolean isIncluded(String name,String car_license){
@@ -32,4 +32,7 @@ public class DriverService {
     }
 
 
+    public void updateScore(){
+
+    };
 }

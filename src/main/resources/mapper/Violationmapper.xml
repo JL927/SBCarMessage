@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.example.demo.mapper.ViolationMapper">
+    <insert id="addViolation">
+        insert into violation (num,license, violation, fine, score) VALUES (#{num},#{license},#{violation}, #{fine}, #{score})
+    </insert>
+    <select id="findAllViolation" resultType="com.example.demo.entity.Violation">
+        select * from violation where license=#{license}
+    </select>
     <select id="findViolation" resultType="com.example.demo.entity.Violation">
-        select * from where carlicense=#{carlicense}
+        select * from violation where num=#{num}
     </select>
     <delete id="deleteViolation" >
-        delete from violation where carlicense=#{carlicense}
+        delete from violation where num=#{num}
     </delete>
-    <insert id="addViolation">
-        insert into violation (carlicese,violation,fine,time,score) VALUES (#{carlicense}, #{violation}, #{fine}, #{time}, #{score},)
-    </insert>
+
 </mapper>

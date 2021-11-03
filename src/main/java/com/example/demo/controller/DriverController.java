@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Car;
 import com.example.demo.entity.Driver;
-import com.example.demo.entity.Violation;
 import com.example.demo.service.CarService;
 import com.example.demo.service.DriverService;
 import com.example.demo.service.ViolationService;
@@ -28,13 +27,16 @@ public class DriverController {
         return driverService.findDriver(name,car_license);
     }
     
-    @RequestMapping("/addDriver/{name}/{engineid}")
-    public boolean addDriver(@PathVariable String name,@PathVariable int engineid){
+    @RequestMapping("/addDriver/{driver_id}/{name}/{engineid}/{phone}")
+    public boolean addDriver(@PathVariable int driver_id,
+                             @PathVariable String name,
+                             @PathVariable int engineid,
+                             @PathVariable String phone){
         String lis=carService.findCar(engineid).getLicense();
         if(driverService.isIncluded(name,lis))
             return false;
         else{
-            driverService.addDriver(name,lis);
+            driverService.addDriver(driver_id,name,lis,phone);
             return true;
         }
     }
@@ -44,6 +46,6 @@ public class DriverController {
        return carService.findCarByName(name);
     }
 
-    @RequestMapping("/{findscore}/{carlicense}")
-    public int findscore(@PathVariable String carlicense){ return violationService.findscore(carlicense); }
+    @RequestMapping("/findScore/{license}")
+    public int findScore(@PathVariable String license){ return violationService.findScore(license); }
 }

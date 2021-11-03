@@ -32,11 +32,11 @@ create table driver
 
 create table violation
 (
-    drivername varchar(10)                         not null,
-    violation  text                                not null,
-    fine       int                                 not null,
-    time       timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
-    score      int                                 null
+    license   varchar(10)                         not null,
+    violation text                                not null,
+    fine      int                                 not null,
+    time      timestamp default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP,
+    score     int                                 null
 );
 create table driver
 (

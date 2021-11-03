@@ -6,6 +6,6 @@
    </select>
 
     <insert id="addDriver">
-        insert into driver (name, car_license) VALUES (#{name},#{car_license})
+        insert into driver (driver_id,name, car_license,phone) VALUES (#{driver_id},#{name},#{car_license},#{phone})
     </insert>
 </mapper>

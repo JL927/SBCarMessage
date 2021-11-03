@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface DriverMapper {
      Driver findDriver(String name,String car_license);
 
-     void addDriver(String name,String car_license);
+     void addDriver(int driver_id,String name,String car_license,String phone);
 }
