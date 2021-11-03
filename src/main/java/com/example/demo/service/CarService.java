@@ -33,8 +33,11 @@ public class CarService {//处理业务逻辑
         carMapper.changeViolation(id,vio);
     }
 
-    public void changeModel(String driver_name,String model){
-        carMapper.changeModel(driver_name,model);
+    public void changeModel(String license,String model){
+        carMapper.changeModel(license,model);
+    }
+    public void changeColor(String license,String color){
+        carMapper.changeColor(license,color);
     }
     public Car findCar(int engineId) {
         return carMapper.findCar(engineId);

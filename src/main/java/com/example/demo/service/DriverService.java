@@ -31,8 +31,7 @@ public class DriverService {
         else return false;
     }
 
-
-    public void updateScore(){
-
-    };
+    public void changePhone(String name,String phone){
+        driverMapper.changePhone(name,phone);
+    }
 }

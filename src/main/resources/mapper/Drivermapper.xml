@@ -8,4 +8,7 @@
     <insert id="addDriver">
         insert into driver (driver_id,name, car_license,phone) VALUES (#{driver_id},#{name},#{car_license},#{phone})
     </insert>
+    <update id="changePhone">
+        update driver set phone=#{phone} where name=#{name}
+    </update>
 </mapper>

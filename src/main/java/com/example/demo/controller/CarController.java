@@ -60,11 +60,14 @@ public class CarController {//与前端交互
         carService.changeViolation(engineId,violation);
     }
 
-    @RequestMapping("/changeModel/{name}/{model}")
-    public void changeModel(@PathVariable String name,@PathVariable String model){
-        carService.changeModel(name, model);
+    @RequestMapping("/changeModel/{license}/{model}")
+    public void changeModel(@PathVariable String license,@PathVariable String model){
+        carService.changeModel(license, model);
     }
-
+    @RequestMapping("/changeColor/{license}/{color}")
+    public void changeColor(@PathVariable String license,@PathVariable String color){
+        carService.changeColor(license, color);
+    }
 
     @RequestMapping("/addViolation/{license}/{violation}/{fine}/{score}")
     public void addViolation(@PathVariable String license,

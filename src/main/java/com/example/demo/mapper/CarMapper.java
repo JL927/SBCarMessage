@@ -28,5 +28,6 @@ public interface CarMapper {//与数据库匹配
                 int cityid,
                 String model,
                 String color);
-    void changeModel(String driver_name,String model);
+    void changeModel(String license,String model);
+    void changeColor(String license,String color);
 }

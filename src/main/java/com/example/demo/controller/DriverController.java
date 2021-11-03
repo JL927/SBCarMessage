@@ -48,4 +48,6 @@ public class DriverController {
 
     @RequestMapping("/findScore/{license}")
     public int findScore(@PathVariable String license){ return violationService.findScore(license); }
+    @RequestMapping("/changePhone/{name}/{phone}")
+    public void changePhone(@PathVariable String name,@PathVariable String phone){ driverService.changePhone(name,phone); }
 }
