@@ -1,10 +1,13 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Car;
+import com.example.demo.entity.Violation;
 import com.example.demo.service.CarService;
+import com.example.demo.service.ViolationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 @RestController
@@ -13,6 +16,8 @@ public class CarController {//与前端交互
 
     @Autowired
     private CarService carService;
+    @Autowired
+    private ViolationService violationService;
 
     @PostMapping("/findAll")
     public List<Car> findAll(){
@@ -57,5 +62,25 @@ public class CarController {//与前端交互
     @RequestMapping("/changeModel/{name}/{model}")
     public void changeModel(@PathVariable String name,@PathVariable String model){
         carService.changeModel(name, model);
+    }
+
+    @RequestMapping("/findViolation/{carlicense}")
+    public Violation findViolation(@PathVariable String carlicense){
+        return violationService.findViolation(carlicense);
+    }
+
+    @RequestMapping("/deleteViolation/{carlicense}")
+    public void deleteViolation(@PathVariable String carlicense){
+        violationService.deleteViolation(carlicense);
+    }
+
+    @RequestMapping("/addViolation/{carlicense}/{violation}/{fine}/{time}{score}")
+    public void addViolation(@PathVariable String carlicense,
+                             @PathVariable String text,
+                             @PathVariable int fine,
+                             @PathVariable Timestamp time,
+                             @PathVariable int score)
+    {
+        violationService.addViolation(carlicense,text,fine,time,score);
     }
 }

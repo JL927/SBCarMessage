@@ -2,8 +2,10 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Car;
 import com.example.demo.entity.Driver;
+import com.example.demo.entity.Violation;
 import com.example.demo.service.CarService;
 import com.example.demo.service.DriverService;
+import com.example.demo.service.ViolationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +19,9 @@ public class DriverController {
     private DriverService driverService;
     @Autowired
     private CarService carService;
+    @Autowired
+    private ViolationService violationService;
+
 
     @RequestMapping("/findDriver/{name}/{car_license}")
     public Driver findDriver(@PathVariable String name, @PathVariable String car_license){
@@ -38,4 +43,7 @@ public class DriverController {
     public Car queryDriver(@PathVariable String name){
        return carService.findCarByName(name);
     }
+
+    @RequestMapping("/{findscore}/{carlicense}")
+    public int findscore(@PathVariable String carlicense){ return violationService.findscore(carlicense); }
 }
