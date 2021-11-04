@@ -9,6 +9,7 @@ public class CityService {
 
     @Autowired
     private CityMapper cityMapper;
+    //查询城市
     public int getCityId(String name){
         return cityMapper.getId(name).getCity_id();
     }
