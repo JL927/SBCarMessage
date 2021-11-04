@@ -28,7 +28,7 @@ public class DriverController {
     }
     
     @RequestMapping("/addDriver/{driver_id}/{name}/{engineid}/{phone}")
-    public boolean addDriver(@PathVariable int driver_id,
+    public boolean addDriver(@PathVariable long driver_id,
                              @PathVariable String name,
                              @PathVariable int engineid,
                              @PathVariable String phone){

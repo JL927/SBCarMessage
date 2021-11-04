@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@Service(value = "driverService1")
+@Service
 public class DriverService {
 
     @Autowired
@@ -21,7 +21,7 @@ public class DriverService {
         return driverMapper.findDriver(name,car_license);
     }
 
-    public void addDriver(int driver_id,String name,String lis,String phone){
+    public void addDriver(long driver_id,String name,String lis,String phone){
         driverMapper.addDriver(driver_id,name,lis,phone);
     }
 

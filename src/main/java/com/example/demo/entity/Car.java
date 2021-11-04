@@ -7,17 +7,7 @@ public class Car {
     private int cityid;
     private String driver_name;
     private String model;
-
-    public Car() {
-    }
-
-    public Car(int engine_id, String license, int cityid, String driver_name, String model) {
-        this.engine_id = engine_id;
-        this.license = license;
-        this.cityid = cityid;
-        this.driver_name = driver_name;
-        this.model = model;
-    }
+    private String color;
 
     public int getEngine_id() {
         return engine_id;
@@ -57,5 +47,25 @@ public class Car {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Car() {
+    }
+
+    public Car(int engine_id, String license, int cityid, String driver_name, String model, String color) {
+        this.engine_id = engine_id;
+        this.license = license;
+        this.cityid = cityid;
+        this.driver_name = driver_name;
+        this.model = model;
+        this.color = color;
     }
 }
