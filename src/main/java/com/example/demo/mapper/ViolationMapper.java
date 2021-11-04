@@ -18,4 +18,8 @@ public interface ViolationMapper {
                       int fine,
                       int score,
                       long num);
+    void changeRequest(long num);
+    void setRequest(long num);
+
+    List<Violation> findAllRequestViolation();
 }

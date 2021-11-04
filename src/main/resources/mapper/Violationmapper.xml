@@ -14,4 +14,13 @@
         delete from violation where num=#{num}
     </delete>
 
+    <select id="findAllRequestViolation">
+        select * from violation where request=true
+    </select>
+    <update id="changeRequest">
+        update violation set request=NOT request where num=#{num}
+    </update>
+    <update id="setRequest">
+        update violation set request=true where num=#{num}
+    </update>
 </mapper>

@@ -14,7 +14,13 @@ public class ViolationService {
     public List<Violation> findAllViolation(String license){return violationMapper.findAllViolation(license);}
     public Violation findViolation(long num){return violationMapper.findViolation(num);}
 
-    public void deleteViolation(long num){violationMapper.deleteViolation(num);}
+    public void deleteViolation(long num,boolean request){
+        if(request){
+            violationMapper.deleteViolation(num);
+        }else {
+            this.changeRequest(num);
+        }
+    }
     public void addViolation(String license,
                              String violation,
                              int fine,
@@ -29,5 +35,17 @@ public class ViolationService {
             totalScores+=violation.getScore();
         }
         return totalScores;
+    }
+
+    public List<Violation> findAllRequestViolation() {
+        return violationMapper.findAllRequestViolation();
+    }
+
+    public void changeRequest(long num){
+        violationMapper.changeRequest(num);
+    }
+
+    public void setRequest(long num){
+        violationMapper.setRequest(num);
     }
 }

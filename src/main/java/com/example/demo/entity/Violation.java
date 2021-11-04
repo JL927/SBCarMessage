@@ -9,6 +9,7 @@ public class Violation {
     private Timestamp time;
     private int score;
     private long num;
+    private boolean request;
 
     public String getLicense() {
         return license;
@@ -61,12 +62,21 @@ public class Violation {
     public Violation() {
     }
 
-    public Violation(String license, String violation, int fine, Timestamp time, int score, long num) {
+    public boolean isRequest() {
+        return request;
+    }
+
+    public void setRequest(boolean request) {
+        this.request = request;
+    }
+
+    public Violation(String license, String violation, int fine, Timestamp time, int score, long num, boolean request) {
         this.license = license;
         this.violation = violation;
         this.fine = fine;
         this.time = time;
         this.score = score;
         this.num = num;
+        this.request = request;
     }
 }

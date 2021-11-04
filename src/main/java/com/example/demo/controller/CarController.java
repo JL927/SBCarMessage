@@ -81,14 +81,24 @@ public class CarController {//与前端交互
     public List<Violation> findAllViolation(@PathVariable String license){
         return violationService.findAllViolation(license);
     }
+
+    @RequestMapping("/findAllRequestViolation")
+    public List<Violation> findAllRequestViolation(){
+        return violationService.findAllRequestViolation();
+    }
     @RequestMapping("/findViolation/{num}")
-    public Violation findViolation(@PathVariable int num){
+    public Violation findViolation(@PathVariable long num){
         return violationService.findViolation(num);
     }
 
-    @RequestMapping("/deleteViolation/{num}")
-    public void deleteViolation(@PathVariable long num){
-        violationService.deleteViolation(num);
+    @RequestMapping("/deleteViolation/{num}/{request}")
+    public void deleteViolation(@PathVariable long num,@PathVariable boolean request){
+        violationService.deleteViolation(num,request);
+    }
+
+    @RequestMapping("/setRequest/{num}")
+    public void setRequest(@PathVariable long num){
+        violationService.setRequest(num);
     }
 
 }
