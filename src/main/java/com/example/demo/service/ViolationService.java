@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Violation;
+import com.example.demo.mapper.DriverMapper;
 import com.example.demo.mapper.ViolationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,8 @@ import java.util.List;
 public class ViolationService {
     @Autowired
     private ViolationMapper violationMapper;
+    @Autowired
+    private DriverMapper driverMapper;
     //查询所有违章信息
     public List<Violation> findAllViolation(String license){return violationMapper.findAllViolation(license);}
     //查询单条违章信息

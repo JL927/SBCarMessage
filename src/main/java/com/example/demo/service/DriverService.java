@@ -3,6 +3,7 @@ package com.example.demo.service;
 import com.example.demo.entity.Driver;
 import com.example.demo.mapper.CarMapper;
 import com.example.demo.mapper.DriverMapper;
+import com.example.demo.mapper.ViolationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,10 +15,13 @@ public class DriverService {
 
     @Autowired
     private DriverMapper driverMapper;
+    @Autowired
+    private ViolationService violationService;
 
 
     //查询司机信息
     public Driver findDriver(String name,String car_license){
+        driverMapper.updateScore(car_license, 12-violationService.findScore(car_license));
         return driverMapper.findDriver(name,car_license);
     }
 

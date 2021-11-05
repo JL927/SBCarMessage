@@ -11,4 +11,7 @@
     <update id="changePhone">
         update driver set phone=#{phone} where name=#{name}
     </update>
+    <update id="updateScore">
+        update driver set rest_score=#{rest_score} where car_license=#{car_license}
+    </update>
 </mapper>
